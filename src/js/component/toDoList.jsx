@@ -13,24 +13,21 @@ const ToDoList = () => {
 		if (evento.key == "Enter") {
 			setTaskList([...taskList, {
 				label: task,
-				done: false
+				done: true
 			}])
-
 		}
 		setTask(evento.target.value)
-	}
-
-
-	function Delete() {
-
-		const fileterd = taskList.map.index.filter()
+		if (evento.key == "Enter") {
+			evento.target.value = ""
+		}
 
 	}
+
 
 	return (<>
 		<div className="text-center">
 			<h1>To do list</h1>
-			<input type="text" palceholder="task" onKeyUp={(evento) => handOnTask(evento)} defaultValue={task} />
+			<input type="text" placeholder="Task" onKeyUp={(evento) => handOnTask(evento)} defaultValue={task} />
 			{
 				taskList.map((toDo, index) => {
 					return <div className="container">
@@ -55,15 +52,15 @@ const ToDoList = () => {
 							</div>
 						</div>
 						<div>
+						</div>
+						<p></p>
 					</div>
-					<p></p>
-					</div>
-					
+
 				})}
-			
-				<div className="container">
-					<p className="text-start ml-4">{taskList.length} items left</p>
-				</div>
+
+			<div className="container">
+				<p className="text-start ml-4">{taskList.length} items left</p>
+			</div>
 
 		</div>
 
