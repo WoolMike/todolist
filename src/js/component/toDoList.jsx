@@ -10,17 +10,23 @@ const ToDoList = () => {
 	const [task, setTask] = useState('');
 	const [taskList, setTaskList] = useState([]);
 	function handOnTask(evento) {
-		if (evento.key == "Enter") {
+		if(evento.target.value!='')
+		{
+			if (evento.key == "Enter" ) {
 			setTaskList([...taskList, {
 				label: task,
 				done: true
 			}])
 		}
 		setTask(evento.target.value)
+
 		if (evento.key == "Enter") {
-			evento.target.value = ""
+			evento.target.value=""
+			setTask("")
 		}
 
+		}
+		
 	}
 
 
